@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Unit-4-Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+
+<body>
+    <h1 class="text-center">Crystal Collector</h1>
+    <p class="text-center">
+        You will be give a random number between 19 and 120. Below the number are four crystals. Each crystal has a
+        hidden value between 1 and 12. Every time you click on a crystal, the value of that crystal will be added to
+        your total score. If your total score matches the number given to you then you win. If it goes over the number
+        given without matching that number than you lose.
+    </p>
+
+    <div class="text-center" id="numberToGuess">Number given</div>
+
+    <div class="text-center" id="wins">Wins</div>
+
+    <div class="text-center" id="losses">losses</div>
+
+    <button id="buttonOne"><img id="picture" src="assets/images/crystalImage.jpg"/></button>
+
+    <button id="buttonTwo"><img id="picture" src="assets/images/crystalImage.jpg"/></button>
+
+    <button id="buttonThree"><img id="picture" src="assets/images/crystalImage.jpg"/></button>
+
+    <button id="buttonFour"><img id="picture" src="assets/images/crystalImage.jpg"/></button>
+
+
+    <div class="text-center" id="currentNumber">Player's Number</div>
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+
+            initializePlayerScore()
+
+
+            createNewNumbers()
+
+
+            $("#buttonOne").on("click", function () {
+                playerNumber = playerNumber + button1
+                $("#currentNumber").text(playerNumber)
+                numberChecker ()
+            });
+
+            $("#buttonTwo").on("click", function () {
+                playerNumber = playerNumber + button2
+                $("#currentNumber").text(playerNumber)
+                numberChecker ()
+            });
+
+            $("#buttonThree").on("click", function () {
+                playerNumber = playerNumber + button3
+                $("#currentNumber").text(playerNumber)
+                numberChecker ()
+            });
+
+            $("#buttonFour").on("click", function () {
+                playerNumber = playerNumber + button4
+                $("#currentNumber").text(playerNumber)
+                numberChecker ()
+            });
+
+
+            function numberChecker ()  {
+
+                if (givenNumber === playerNumber) {
+                    alert("You Win");
+                    wins += 1;
+                    $("#wins").text("wins =" + wins)
+                    createNewNumbers()
+                    initializePlayerScore()
+                    $("#currentNumber").text(playerNumber)
+                    console.log("hello")
+                }
+
+                else if (givenNumber < playerNumber) {
+                    alert("You Lose");
+                    losses += 1;
+                    $("#losses").text("losses =" + losses)
+                    createNewNumbers()
+                    initializePlayerScore()
+                    $("#currentNumber").text(playerNumber)
+                    console.log("hello")
+                }
+
+            
+
+            }
+
+
+
+
+
+        });
+
+        function createNewNumbers() {
+
+            givenNumber = Math.floor(Math.random() * 101) + 19;
+            $("#numberToGuess").text(givenNumber)
+            console.log(givenNumber)
+
+            button1 = Math.floor(Math.random() * 12) + 1;
+            console.log(button1)
+
+            button2 = Math.floor(Math.random() * 12) + 1;
+            console.log(button2)
+
+            button3 = Math.floor(Math.random() * 12) + 1;
+            console.log(button3)
+
+            button4 = Math.floor(Math.random() * 12) + 1;
+            console.log(button4)
+
+        };
+
+        function initializePlayerScore() {
+            playerNumber = 0;
+
+        };
+
+        var givenNumber = 0;
+        var playerNumber = 0;
+        var wins = 0;
+        var losses = 0;
+        var button1 = 0;
+        var button2 = 0;
+        var button3 = 0;
+        var button4 = 0;
+
+
+
+        //tell the computer to randomize a value for the givenNumber
+        //Tell the computer to randomize values for the buttons
+        //tell it to add the value buttons to the playerNumber
+        //give the player a win if he/she matches the givenNumber
+        //give the player a loss if he/she goes over the givenNumber
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

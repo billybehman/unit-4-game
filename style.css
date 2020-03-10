@@ -1,0 +1,23 @@
+h1 {
+color: blue;
+margin-top: 50px;
+margin-bottom: 50px;
+
+}
+
+p {
+margin-top: 50px;
+margin-bottom: 50px;
+    
+}
+
+#numberToGuess {
+margin-top: 50px;
+margin-bottom: 50px;
+        
+}
+
+#picture {
+    height: 200px;
+    width: 200px;
+}
